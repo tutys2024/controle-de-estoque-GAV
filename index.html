@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#317EFB">
+  <link rel="manifest" href="./manifest.json">
+  <title>StockControl PWA</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Controle de Estoque</h1>
+    <div id="themeToggle">Trocar Tema</div>
+  </header>
+  <div id="stockContainer">
+    <table id="stockTable">
+      <thead>
+        <tr><th>Item</th><th>Quantidade</th><th>Preço</th><th>Ações</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <button onclick="addItemForm()">Adicionar Item</button>
+  </div>
+  <div id="chartContainer">
+    <canvas id="stockChart"></canvas>
+  </div>
+  <script src="./script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js');
+    }
+  </script>
+</body>
+</html>
